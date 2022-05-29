@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/header/header';
+import Footer from './components/Footer/Footer'
+import Home from './Pages/Home/home';
+import CharSheet from './Pages/CharSheet/charSheet';
+import { RaceSelection } from './Pages/CharQuiz/Races';
+import { SubRaces } from './Pages/CharQuiz/SubRaces';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="app" >
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />}>
+          </Route>
+          <Route path="/charSheet" element={<CharSheet />} />
+          <Route path="/RaceSelect" element={<RaceSelection />} />
+          <Route path="/SubRaceSelect" element={<SubRaces />} />
+        </Routes>
+      </div>
+      <Footer />
+    </BrowserRouter >
   );
 }
 
